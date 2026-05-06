@@ -18,7 +18,8 @@ await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).cl
   await page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click({ timeout: 10000 });
 
  
-  await expect(page.getByText('CỔNG NHÂN VIÊN')).toBeVisible();
+  await expect(page.getByText('Hàng chờ nhập kho nước ngoài').first()).toBeVisible();
+
 
   await Promise.all([
     page.waitForURL('**/staff-warehouse-foreign/dashboard'),
