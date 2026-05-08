@@ -17,26 +17,24 @@ await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).cl
 await page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click();
 
 await expect(page).toHaveURL(/staff-purchaser/);
-
-const menu = page.getByRole('link', { name: 'Yêu cầu hủy đơn' });
+await page.getByText('Quản lý', { exact: true }).first().click({ force: true });
+const menu = page.getByRole('link', { name: 'Quản lý mua hàng' });
 
 await expect(menu).toBeVisible();
 
 await Promise.all([
-  page.waitForURL('**/staff-purchaser/cancel-requests'),
+  page.waitForURL('**/staff-purchaser/inventorystock'),
   menu.click()
 ]);
 await expect(menu).toBeVisible();
 
-await page.getByRole('button', { name: 'Từ chối yêu cầu' }).first().click();
-await page.getByPlaceholder('Nhập lý do từ chối...').fill('test');
-await page.getByRole('button', { 
-  name: 'Từ chối', 
-  exact: true 
-}).first().click();
+await expect(page.getByText('AutoCustomer').first()).toBeVisible();
+await page.getByRole('button', { name: 'Sửa' }).first().click();
+ await page.getByPlaceholder('Nhập ghi chú...').fill('Test ghi chú thành công');
+await page.getByRole('button', { name: 'Lưu thay đổi' }).click();
+  
 
 
-
-  const successMsg = page.getByText('Đã từ chối yêu cầu hủy đơn');
+  const successMsg = page.getByText('Cập nhật đơn mua hàng thành công.');
   await expect(successMsg).toBeVisible();
 });
