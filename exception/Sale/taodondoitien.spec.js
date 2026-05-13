@@ -42,7 +42,9 @@ await page.getByRole('link', { name: 'Đổi tiền', exact: true }).click();
 
 await expect(page.locator('input[type="file"]')).toHaveCount(1);
 
-await page.locator('input[type="file"]').setInputFiles('D:\\File Công Việc\\AMAZING TECH\\TEST PLAYWRIGHT\\tests\\fixtures\\receipt.png');
+await page
+  .locator('input[type="file"]')
+  .setInputFiles('fixtures/receipt.png');
 await page.getByPlaceholder('Ghi chú chi tiết. Ví dụ: Chuyển khoản cho Nguyen Van A - STK: 123456789').fill('test');
 
 

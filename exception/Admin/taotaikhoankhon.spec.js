@@ -70,12 +70,20 @@ await requiredFieldText.scrollIntoViewIfNeeded();
 await expect(requiredFieldText).toBeVisible();
 
 await requiredFieldText.scrollIntoViewIfNeeded();
+await page.getByText('IDR').first().click({ force: true });
 
-await page.locator('select[name="warehouseLocationId"]').selectOption('1');
+const warehouseSelect = page.locator('select[name="warehouseLocationId"]');
+await expect(warehouseSelect).toBeEnabled();
+await warehouseSelect.selectOption({ value: '2' });
+
+await expect(
+  warehouseSelect.locator('option').nth(1)
+).toBeVisible();
+await warehouseSelect.selectOption({ index: 1 });
 
 await page.getByText('Duyệt chi phí', { exact: true }).click({ force: true });
 await page.getByText('Yêu cầu chi phí', { exact: true }).click({ force: true });
-await page.getByText('IDR', { exact: true }).click({ force: true });
+
 
 await page.getByRole('button', { name: 'Tạo tài khoản', exact: true }).nth(0).click();
 await page.getByRole('button', { name: 'Tạo tài khoản', exact: true }).nth(1).click();

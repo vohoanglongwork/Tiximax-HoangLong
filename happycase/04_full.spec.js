@@ -45,7 +45,7 @@ await expect(target).toBeVisible();
       await page.getByPlaceholder('Cao (cm)', { exact: true }).fill('1');
       await page.getByPlaceholder('vd. 1.500', { exact: true }).fill('1');
 
-const filePath = 'tests/fixtures/receipt.png';
+const filePath = 'fixtures/receipt.png';
 
 // Ảnh chính
 await page

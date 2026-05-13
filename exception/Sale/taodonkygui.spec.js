@@ -75,7 +75,9 @@ await loai.click({ force: true });
   await page.getByPlaceholder('Nhập phụ phí').fill('41128');
 
     await expect(page.locator('input[type="file"]')).toHaveCount(1);
-await page.locator('input[type="file"]').setInputFiles('D:\\File Công Việc\\AMAZING TECH\\TEST PLAYWRIGHT\\tests\\fixtures\\receipt.png');
+await page
+  .locator('input[type="file"]')
+  .setInputFiles('fixtures/receipt.png');
  await expect(page.getByText('Tải ảnh lên thành công')).toBeVisible({ timeout: 5000 });
 
 

@@ -25,10 +25,10 @@ await page.waitForLoadState('networkidle');
 
 
 // đợi sidebar load
-await expect(
-  page.getByRole('link', { name: 'Xác nhận đơn hàng' })).toBeVisible({ force: true });
+await expect(page.getByText('Xác nhận đơn hàng')).toBeVisible();
 
-  await page.getByRole('link', { name: 'Xác nhận đơn hàng' }).click({ force: true });
+
+await page.getByText('Xác nhận đơn hàng').click({ force: true });
 await page.waitForLoadState('networkidle');
 await expect(page).toHaveURL(/manager\/quote/);
 await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
