@@ -86,11 +86,11 @@ Chạy theo thứ tự 01 -> 08
 
 05_full : Nhập kho việt nam
 
-06_full : Sale Xác nhận địa chỉ giao và tạo phiếu thanh toán ship
+06_full : Sale Xác nhận địa chỉ giao và tạo phiếu thanh toán ship                  (chưa dùng được,lỗi api)
 
 07_full : Admin xác nhận thanh toán ship
 
-08_full : xuất kho                                                           (chưa dùng được, lỗi api)
+08_full : xuất kho                                                           
 
 
 
