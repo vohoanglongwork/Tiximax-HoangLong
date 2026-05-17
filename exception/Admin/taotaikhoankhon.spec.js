@@ -19,7 +19,7 @@ function generateRandomEmail() {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autoManager');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('xuanloc');
   await page.getByPlaceholder('••••••••').fill('123456');
 
 await Promise.all([
@@ -71,15 +71,14 @@ await expect(requiredFieldText).toBeVisible();
 
 await requiredFieldText.scrollIntoViewIfNeeded();
 await page.getByText('IDR').first().click({ force: true });
+await expect(page.getByText('Đang tải...').first()).toBeHidden();
 
-const warehouseSelect = page.locator('select[name="warehouseLocationId"]');
-await expect(warehouseSelect).toBeEnabled();
-await warehouseSelect.selectOption({ value: '2' });
+const warehouseSelect = page.getByRole('combobox');
 
-await expect(
-  warehouseSelect.locator('option').nth(1)
-).toBeVisible();
-await warehouseSelect.selectOption({ index: 1 });
+await expect(warehouseSelect).toBeVisible();
+
+await warehouseSelect.selectOption({ label: 'INDO — Indonesia' });
+
 
 await page.getByText('Duyệt chi phí', { exact: true }).click({ force: true });
 await page.getByText('Yêu cầu chi phí', { exact: true }).click({ force: true });

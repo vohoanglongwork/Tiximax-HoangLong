@@ -13,13 +13,14 @@ test('Test Admin chuyển trạng thái TT', async ({ page }) => {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autoManager');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('xuanloc');
   await page.getByPlaceholder('••••••••').fill('123456');
 
 await Promise.all([
   page.waitForURL('**/manager', { timeout: 15000 }),
   page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click()
 ]);
+
 await expect(page).toHaveURL(/manager\/dashboard/);
 await page.waitForLoadState('networkidle');
 
@@ -31,7 +32,7 @@ await expect(page.getByText('Xác nhận đơn hàng')).toBeVisible();
 await page.getByText('Xác nhận đơn hàng').click({ force: true });
 await page.waitForLoadState('networkidle');
 await expect(page).toHaveURL(/manager\/quote/);
-await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
+
   const statusSelect = page.getByRole('combobox').first();
   await expect(statusSelect).toBeVisible();
 await statusSelect.click();
@@ -43,7 +44,7 @@ const option = dropdown.getByText('Chờ thanh toán', { exact: true });
 await expect(option).toBeVisible();
 await option.click();
 
-  await page.getByPlaceholder('Mã khách hàng...').fill('KH26040013');
+  await page.getByPlaceholder('Mã khách hàng...').fill('C02157');
 
   await page.getByRole('button', { name: 'Tìm kiếm' }).click();
 

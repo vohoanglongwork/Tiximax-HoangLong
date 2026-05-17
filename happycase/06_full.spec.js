@@ -40,6 +40,7 @@ await page.getByRole('button', { name: /Theo dõi kho hàng/ }).click();
   ]);
 
 
+await expect(page.getByText('Danh sách địa chỉ giao chờ xác nhận')).toBeVisible();
 
   // CUSTOMER SEARCH (payment page)
   const searchInput2 = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
@@ -47,7 +48,9 @@ await page.getByRole('button', { name: /Theo dõi kho hàng/ }).click();
   await searchInput2.click();
   await searchInput2.pressSequentially('AutoCustomer', { delay: 100 });
 
-  const customerOption2 = page.getByText('AutoCustomer');
+  const customerOption2 = page.getByText('AutoCustomer').first();
+  await expect(customerOption2).toBeVisible();
+  await customerOption2.click();
 
 
 

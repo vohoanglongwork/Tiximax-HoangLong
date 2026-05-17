@@ -23,7 +23,7 @@ await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).cl
 
   await Promise.all([
     page.waitForURL('**/staff-warehouse-foreign/dashboard'),
-    page.getByRole('link', { name: 'Tổng quan' }).click()
+    page.getByRole('link', { name: 'Tổng quan' }).click({ force: true })
   ]);
 
 
@@ -40,6 +40,7 @@ await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).cl
       const target = page.getByText('Xác nhận nhập kho', { exact: true });
 await target.scrollIntoViewIfNeeded();
 await expect(target).toBeVisible();
+await page.getByText('Hàng cồng kềnh', { exact: true }).click({ force: true });
       await page.getByPlaceholder('Dài (cm)', { exact: true }).fill('1');
       await page.getByPlaceholder('Rộng (cm)', { exact: true }).fill('1');
       await page.getByPlaceholder('Cao (cm)', { exact: true }).fill('1');

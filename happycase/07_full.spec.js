@@ -13,7 +13,7 @@ test('Test xác nhận thanh toán ship', async ({ page }) => {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autoManager');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('xuanloc');
   await page.getByPlaceholder('••••••••').fill('123456');
 
 await Promise.all([
@@ -43,7 +43,7 @@ const option = dropdown.getByText('Chờ thanh toán ship', { exact: true });
 await expect(option).toBeVisible();
 await option.click();
 
-  await page.getByPlaceholder('Mã khách hàng...').fill('KH26040013');
+  await page.getByPlaceholder('Mã khách hàng...').fill('C02157');
 
   await page.getByRole('button', { name: 'Tìm kiếm' }).click();
 

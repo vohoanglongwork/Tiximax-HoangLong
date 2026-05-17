@@ -19,7 +19,7 @@ function generateRandomEmail() {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autoManager');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('xuanloc');
   await page.getByPlaceholder('••••••••').fill('123456');
 
 await Promise.all([
@@ -71,11 +71,20 @@ await expect(requiredFieldText).toBeVisible();
 
 await requiredFieldText.scrollIntoViewIfNeeded();
 
-await page.locator('select[name="warehouseLocationId"]').selectOption('1');
+
+// chọn tuyến
+await page.getByRole('radio', { name: 'IDR - VND' }).check();
+
+// chờ dropdown active
+const warehouseSelect = page.getByRole('combobox');
+
+await expect(warehouseSelect).toBeEnabled();
+
+await warehouseSelect.selectOption('1');
 
 await page.getByText('Duyệt chi phí', { exact: true }).click({ force: true });
 await page.getByText('Yêu cầu chi phí', { exact: true }).click({ force: true });
-await page.getByText('IDR', { exact: true }).click({ force: true });
+
 
 await page.getByRole('button', { name: 'Tạo tài khoản', exact: true }).nth(0).click();
 await page.getByRole('button', { name: 'Tạo tài khoản', exact: true }).nth(1).click();

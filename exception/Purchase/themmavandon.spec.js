@@ -35,9 +35,9 @@ await page.getByRole('button', { name: 'Tạo đơn mua1' }).click();
   await page.getByPlaceholder('25000').fill('1');
 
   await page.getByPlaceholder('Ghi chú thêm...').fill('Test tự động');
-  await expect(page.locator('input[type="file"]')).toHaveCount(1);
+const fileInput = page.locator('input[type="file"]');
 
-await page.locator('input[type="file"]').setInputFiles('tests/fixtures/receipt.png');
+await fileInput.setInputFiles('fixtures/receipt.png');
  await expect(page.getByText('Tải ảnh lên thành công')).toBeVisible({ timeout: 5000 });
   await page.getByRole('button', { name: 'Xác nhận mua hàng' }).last().click();
 

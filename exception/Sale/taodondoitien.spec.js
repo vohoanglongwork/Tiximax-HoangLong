@@ -34,7 +34,7 @@ await page.getByRole('link', { name: 'Đổi tiền', exact: true }).click();
 
   
   await page.getByText('Chọn tuyến đường').click({ force: true });
-  await page.getByText('IDR', { exact: true }).click();
+  await page.getByText('IDR - VND', { exact: true }).click();
 
  
   await page.getByPlaceholder('Số tiền (vd: 1,000) *').fill('1000');

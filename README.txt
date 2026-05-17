@@ -86,7 +86,7 @@ Chạy theo thứ tự 01 -> 08
 
 05_full : Nhập kho việt nam
 
-06_full : Sale Xác nhận địa chỉ giao và tạo phiếu thanh toán ship                  (chưa dùng được,lỗi api)
+06_full : Sale Xác nhận địa chỉ giao và tạo phiếu thanh toán ship                  
 
 07_full : Admin xác nhận thanh toán ship
 
@@ -160,8 +160,11 @@ require : 01_full , 02_full , 03_full
 themmavandon : Tạo đơn mua hàng nhưng không add mã vận đơn sau đó thêm mã trong thêm mã vận đơn
 require : 01_full , 02_full
 
+taodonmuadaugia : tạo đơn mua cho đơn đấu giá
+require : taodondaugia, 02_full
 
-
+xacnhanmuadondaugia : xác nhận mua cho đơn đấu giá
+require : taodondaugia, 02_full, taodonmuadaugia
 
 
 
@@ -207,7 +210,14 @@ require : no
 
 
 
+=========================================================================
 
+
+Kho nội:
+
+
+inmavandon : In mã vận đơn xuất excel
+require : no
 
 
 

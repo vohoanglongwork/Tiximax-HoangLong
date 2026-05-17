@@ -62,7 +62,7 @@ await searchInput.pressSequentially('AutoCustomer', { delay: 100 });
 
 // chờ option xuất hiện
 const customerOption = page.getByRole('button', {
-  name: /KH26040013 - AutoCustomer/
+  name: /C02157 - AutoCustomer/
 });
 
 await expect(customerOption).toBeVisible();

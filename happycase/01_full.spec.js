@@ -34,7 +34,7 @@ await expect(page.getByText('Tạo đơn mua hộ')).toBeVisible();
   
   await page.getByText('Chọn tuyến đường').click({ force: true });
 
-  await page.getByText('IDR - VN', { exact: true }).click();
+  await page.getByText('IDR - VND', { exact: true }).click();
 
  
   await page.getByText('Chọn địa chỉ', { exact: true }).click({ force: true });
@@ -78,13 +78,13 @@ await lazada.click({ force: true });
   await page.getByPlaceholder('Tên hoặc mô tả ngắn gọn').fill(randomUsername);
 await page.keyboard.press('Escape');
 
-await page.getByText('Chọn loại dịch vụ').click({ force: true });
-const loaidv = page.getByText('Hàng sạch (CLEAN)', { exact: true });
-await expect(loaidv).toBeVisible();
-await loaidv.click({ force: true });
+//await page.getByText('Chọn loại hàng').click({ force: true });
+//const loaidv = page.getByText('Hàng sạch (CLEAN)', { exact: true });
+//await expect(loaidv).toBeVisible();
+//await loaidv.click({ force: true });
 
 await page.getByText('Chọn loại hàng').click({ force: true });
-const loai = page.getByText('06. Thể Thao', { exact: true });
+const loai = page.getByText('06. Gia Dụng', { exact: true });
 await expect(loai).toBeVisible();
 await loai.click({ force: true });
 

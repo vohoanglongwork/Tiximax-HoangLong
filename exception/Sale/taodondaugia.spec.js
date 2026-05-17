@@ -34,7 +34,7 @@ await page.getByRole('link', { name: 'Đấu giá', exact: true }).click();
 
   
   await page.getByText('Chọn tuyến đường').click({ force: true });
-  await page.getByText('IDR', { exact: true }).click();
+  await page.getByText('IDR - VND', { exact: true }).click();
 
  
   await page.getByText('Chọn địa chỉ', { exact: true }).click({ force: true });
@@ -77,7 +77,7 @@ await lazada.click({ force: true });
 
   // CATEGORY
 await page.getByText('Chọn loại hàng').click({ force: true });
-const loai = page.getByText('06. Thể Thao', { exact: true });
+const loai = page.getByText('06. Gia Dụng', { exact: true });
 await expect(loai).toBeVisible();
 await loai.click({ force: true });
 
