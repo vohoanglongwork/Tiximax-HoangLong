@@ -49,12 +49,12 @@ await expect(page.getByText('Đang tải chi tiết đơn hàng')).toBeHidden({ 
 const cancelBtn = page.getByRole('button', { name: 'Yêu cầu hủy đơn' });
 await expect(cancelBtn).toBeEnabled();
 await cancelBtn.click();
-await page.getByPlaceholder('Nhập lý do từ phía khách hàng...').fill('Test');
-await page.getByPlaceholder('Nhập ghi chú...').fill('Test 2');
+await page.getByPlaceholder('Nhập lý do khách yêu cầu hủy').fill('Test');
+await page.getByPlaceholder('Nhập ghi chú nếu có').fill('Test 2');
 
 await page.getByRole('button', { name: 'Gửi yêu cầu' }).click();
 
 
-const successMsg = page.getByText('Đã gửi yêu cầu hủy đơn thành công.');
+const successMsg = page.getByText('Đã gửi yêu cầu hủy đơn và hoàn tiền thành công.');
   await expect(successMsg).toBeVisible();
 });
