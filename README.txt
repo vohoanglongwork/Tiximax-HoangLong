@@ -1,4 +1,4 @@
-UPDATE 13/05/2026
+UPDATE 19/05/2026
 
 
 
@@ -125,16 +125,18 @@ require : no
 
 Huỷ đơn:
 
-
+huỷ đơn vào ví
 huydonchomua : Huỷ đơn trạng thái chờ mua
 require : 01\_full ,02\_full
 
 huydonchothanhtoantienhang : Huỷ đơn trạng thái chờ thanh toán tiền hàng
 require : 01\_full 
 
-huydondaxacnhan : Huỷ đơn trạng thái đã xác nhận                             (chưa dùng được, api thay đổi)
-require : taodonmuaho 
+huydondaxacnhan : Huỷ đơn trạng thái đã xác nhận                             (chưa dùng được)
+huỷ đơn vào stk
 
+huydonchomua : Huỷ đơn trạng thái chờ mua
+require : 01\_full ,02\_full
 
 
 
@@ -148,10 +150,10 @@ Purchase:
 changepass : Đổi mật khẩu tài khoản Purchase
 require : no
 
-acceptyeucauhuy : Đồng ý yêu cầu huỷ đơn của Purchase                       (chưa dùng được, api thay đổi)
+chapnhanyeucauhuy : Đồng ý yêu cầu huỷ đơn của Purchase                       
 require : 01_full, huydonchothanhtoantienhang
 
-denyyeucauhuy : Từ chối yêu cầu huỷ đơn của Purchase                         (chưa dùng được, api thay đổi)
+tuchoiyeucauhuy : Từ chối yêu cầu huỷ đơn của Purchase                         
 require : 01_full, huydonchothanhtoantienhang
 
 thaydoinoidungghichudonghang : Thay đổi ghi chú của đơn hàng
