@@ -61,7 +61,7 @@ await page.keyboard.press('Home');
 
 await page.getByText('Taobao, 1688, Tmall...').click({ force: true });
 
-const lazada = page.getByText('Lazada', { exact: true });
+const lazada = page.getByText('Lazada', { exact: true }).first();
 
 await expect(lazada).toBeVisible();
 await lazada.click({ force: true });
@@ -87,8 +87,44 @@ await loai.click({ force: true });
   await productSection.getByPlaceholder('Nhập phí ship').fill('1000');
 
   await page.getByPlaceholder('Ví dụ: Tmall Shop A').fill('Auto Của Long');
+
+
+
+
 await page.getByRole('button', { name: 'Thêm item' }).click({ force: true });
 
+
+
+
+
+await page.getByText('Taobao, 1688, Tmall...').click({ force: true });
+
+
+
+await expect(lazada).toBeVisible();
+await lazada.nth(1).click({ force: true });
+
+
+  await page.getByPlaceholder('Nhập giá').fill('41128');
+
+  // ORDER INFO
+  await page.getByPlaceholder('Tên hoặc mô tả ngắn gọn').fill(randomUsername);
+await page.keyboard.press('Escape');
+
+await page.getByText('Chọn loại hàng').click({ force: true });
+
+await expect(loai).toBeVisible();
+await loai.nth(1).click({ force: true });
+
+
+
+  // PRICE + SHIPPING
+
+
+
+  await productSection.getByPlaceholder('Nhập phí ship').fill('1000');
+
+  await page.getByPlaceholder('Ví dụ: Tmall Shop A').fill('Auto Của Long');
   // CREATE ORDER
   await page.getByRole('button', { name: 'Hoàn thành tạo đơn' }).click();
   await page.getByRole('button', { name: 'Tạo đơn mua hộ' }).click();

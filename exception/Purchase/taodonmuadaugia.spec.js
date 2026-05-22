@@ -42,7 +42,9 @@ await fileInput.setInputFiles('fixtures/receipt.png');
   await page.getByRole('button', { name: 'Xác nhận mua hàng' }).last().click();
 
 await page.getByText('Quản lý', { exact: true }).click({ force: true });
-const menu2 = page.getByRole('link', { name: 'Quản lý mua hàng', exact: true  });
+const menu2 = page.getByRole('link', { name: 'Quản lý mua hàng', exact: true });
+
+await menu2.scrollIntoViewIfNeeded();
 await expect(menu2).toBeVisible();
 
 await Promise.all([

@@ -1,4 +1,4 @@
-UPDATE 19/05/2026
+UPDATE 22/05/2026
 
 
 
@@ -76,13 +76,13 @@ Chạy theo thứ tự 01 -> 08
 
 
 
-01_full : Tạo đơn mua hộ và tạo phiếu thanh toán cho đơn vừa tạo
+01_full : Tạo đơn mua hộ và tạo phiếu thanh toán cho đơn vừa tạo           (Đang đẩy trang lên?)
 
 02_full : Admin chuyển trạng thái đã thanh toán cho đơn vừa tạo
 
 03_full : Purchase tạo đơn mua hàng
 
-04_full : Nhập kho nước ngoài
+04_full : Nhập kho nước ngoài                                       ( đang lỗi api không load đơn hang )
 
 05_full : Nhập kho việt nam
 
@@ -103,6 +103,8 @@ Chạy theo thứ tự 01 -> 08
 
 Sale:
 
+guiyeucauhoantienvidientu : sử dung chức năng yêu cầu hoàn huỷ của sale trên đơn đấu giá
+require : taodondaugia, 02_full , huydondaugia
 
 taodonmuaho : Tạo đơn mua hộ nhưng không tạo phiếu thanh toán
 require : no
@@ -145,7 +147,11 @@ require : 01\_full ,02\_full
 
 
 Purchase:
+nhapkhohangthuong : nhập hang vào kho ngoại
+require : 01_full , 02_full , 03_full
 
+huydondaugia : huỷ đơn đấu giá của purchase
+require : taodondaugia, 02_full
 
 changepass : Đổi mật khẩu tài khoản Purchase
 require : no
@@ -189,13 +195,13 @@ require : no
 quanlykhuyenmai : quản lý option trong cấu hình hệ thống
 require : no
 
-quanlyloaisanpham : quản lý option trong cấu hình hệ thống
+quanlyloaisanpham : quản lý option trong cấu hình hệ thống           (đang lỗi code)   
 require : no
 
 quanlywebsite : quản lý option trong cấu hình hệ thống
 require : no
 
-taotaikhoankhon : Tạo tài khoản
+taotaikhoankhon : Tạo tài khoản                               (đang lỗi code)
 require : no 
 
 taotaikhoanvn : Tạo tài khoản
@@ -221,8 +227,10 @@ Kho nội:
 inmavandon : In mã vận đơn xuất excel
 require : no
 
+=========================================================================
 
 
+Kho Ngoại:
 
-
+xuatexcelchobay
 

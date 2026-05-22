@@ -59,14 +59,24 @@ await page.getByRole('button', { name: /Quản lý khách hàng/ }).click();
 await page.getByPlaceholder('email@example.com').fill(email);
 
 
+await page.getByText('Chọn quốc gia', { exact: true }).click({ force: true });
+
+await page.locator('.ant-select-item-option')
+  .filter({ hasText: 'Việt Nam' })
+  .click();
+
 
 // Chọn Tỉnh
 await page.locator('#province').click();
-await page.locator('.ant-select-item-option >> visible=true').first().click();
+await page.locator('.ant-select-item-option')
+  .filter({ hasText: 'Thành phố Hà Nội' })
+  .click();
 await page.waitForTimeout(500); 
 // Chọn Phường/Xã
 await page.locator('#ward').click();
-await page.locator('.ant-select-item-option >> visible=true').first().click();
+await page.locator('.ant-select-item-option')
+  .filter({ hasText: 'Phường Ba Đình' })
+  .click();
 await page.waitForTimeout(500); 
 // Chọn Nguồn (Source)
 await page.locator('#source').click();

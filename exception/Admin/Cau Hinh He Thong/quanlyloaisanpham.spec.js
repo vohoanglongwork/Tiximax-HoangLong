@@ -12,7 +12,7 @@ test('Test quản lý loại sản phẩm', async ({ page }) => {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autoManager');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('xuanloc');
   await page.getByPlaceholder('••••••••').fill('123456');
 
 await Promise.all([

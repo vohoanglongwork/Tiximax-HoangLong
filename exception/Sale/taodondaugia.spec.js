@@ -41,9 +41,6 @@ await page.getByRole('link', { name: 'Đấu giá', exact: true }).click();
   await page.getByRole('button', { name: 'autotest home hcm' }).click();
 
 
-await page.getByText('Chọn điểm đến').click({ force: true });
-
-await page.getByText('Hà Nội', { exact: true }).click();
 
 
 

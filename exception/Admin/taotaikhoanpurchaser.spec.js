@@ -74,7 +74,7 @@ await requiredFieldText.scrollIntoViewIfNeeded();
 
 await page.getByText('Duyệt chi phí', { exact: true }).click({ force: true });
 await page.getByText('Yêu cầu chi phí', { exact: true }).click({ force: true });
-await page.getByText('IDR', { exact: true }).click({ force: true });
+await page.getByText('IDR').first().click({ force: true });
 
 await page.getByRole('button', { name: 'Tạo tài khoản', exact: true }).nth(0).click();
 await page.getByRole('button', { name: 'Tạo tài khoản', exact: true }).nth(1).click();

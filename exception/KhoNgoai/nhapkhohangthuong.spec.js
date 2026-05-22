@@ -40,10 +40,6 @@ await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).cl
       const target = page.getByText('Xác nhận nhập kho', { exact: true });
 await target.scrollIntoViewIfNeeded();
 await expect(target).toBeVisible();
-await page.getByText('Hàng cồng kềnh', { exact: true }).click({ force: true });
-      await page.getByPlaceholder('Dài (cm)', { exact: true }).fill('1');
-      await page.getByPlaceholder('Rộng (cm)', { exact: true }).fill('1');
-      await page.getByPlaceholder('Cao (cm)', { exact: true }).fill('1');
       await page.getByPlaceholder('vd. 1.500', { exact: true }).fill('1');
 
 const filePath = 'fixtures/receipt.png';

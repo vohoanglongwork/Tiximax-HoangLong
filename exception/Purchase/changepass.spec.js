@@ -19,7 +19,7 @@ await page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click();
 await expect(page).toHaveURL(/staff-purchaser/);
 
 const menu = page
-  .getByText('ST2604005', { exact: true })
+  .getByText('S00104', { exact: true })
   .first();
 
 await expect(menu).toBeVisible();
