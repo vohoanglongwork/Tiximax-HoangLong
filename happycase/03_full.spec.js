@@ -18,7 +18,11 @@ await page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click();
 
 await expect(page).toHaveURL(/staff-purchaser/);
 
-const menu = page.getByRole('link', { name: 'Đơn mua hàng' });
+const menu = page.getByRole('link', {
+  name: 'Đơn mua hàng',
+  exact: true
+});
+
 
 await expect(menu).toBeVisible();
 

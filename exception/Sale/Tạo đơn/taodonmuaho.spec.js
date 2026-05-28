@@ -33,14 +33,11 @@ await expect(page.getByText('Tạo đơn mua hộ')).toBeVisible();
 
   
   await page.getByText('Chọn tuyến đường').click({ force: true });
-
   await page.getByText('IDR - VND', { exact: true }).click();
-// Click vào combobox
-// mở dropdown tuyến vận hành
 
+ 
   await page.getByText('Chọn địa chỉ', { exact: true }).click({ force: true });
   await page.getByRole('button', { name: 'autotest home hcm' }).click();
-
 
 
 
@@ -61,9 +58,6 @@ await page.keyboard.press('Home');
 
 
 
-
-
-// mở dropdown tuyến vận hành
 await page.getByText('Tuyến vận hành', {
   exact: true
 }).click({ force: true });
@@ -75,6 +69,7 @@ const option = page.getByText('IDR - VND / INDO -> Hà Nội', {
 await expect(option).toBeVisible();
 await option.click();
 await page.getByText('Taobao, 1688, Tmall...').click({ force: true });
+
 const lazada = page.getByText('Lazada', { exact: true });
 
 await expect(lazada).toBeVisible();
@@ -86,11 +81,6 @@ await lazada.click({ force: true });
   // ORDER INFO
   await page.getByPlaceholder('Tên hoặc mô tả ngắn gọn').fill(randomUsername);
 await page.keyboard.press('Escape');
-
-//await page.getByText('Chọn loại hàng').click({ force: true });
-//const loaidv = page.getByText('Hàng sạch (CLEAN)', { exact: true });
-//await expect(loaidv).toBeVisible();
-//await loaidv.click({ force: true });
 
 await page.getByText('Chọn loại hàng').click({ force: true });
 const loai = page.getByText('06. Gia Dụng', { exact: true });
@@ -106,57 +96,10 @@ await loai.click({ force: true });
   await productSection.getByPlaceholder('Nhập phí ship').fill('1000');
 
   await page.getByPlaceholder('Ví dụ: Tmall Shop A').fill('Auto Của Long');
+await page.getByRole('button', { name: 'Thêm item' }).click({ force: true });
 
   // CREATE ORDER
   await page.getByRole('button', { name: 'Hoàn thành tạo đơn' }).click();
   await page.getByRole('button', { name: 'Tạo đơn mua hộ' }).click();
 
-  // PAYMENT FLOW
-  await page.getByRole('button', { name: 'Thanh toán', exact: true }).click();
-
-  const paymentLink = page.getByRole('link', { name: 'Thanh toán đơn hàng' });
-  await expect(paymentLink).toBeVisible();
-  await paymentLink.click();
-
-  await expect(page).toHaveURL(/.*\/payments\/order/);
-
-  await expect(page.getByText('Chưa chọn khách hàng')).toBeVisible();
-
-  // CUSTOMER SEARCH (payment page)
-  const searchInput2 = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
-
-  await searchInput2.click();
-  await searchInput2.pressSequentially('autosale', { delay: 100 });
-
-  const customerOption2 = page.getByText('C02168');
-  await expect(customerOption2).toBeVisible();
-  await customerOption2.click();
-
-  await expect(page.getByText('Đang tải danh sách đơn hàng')).toBeHidden();
-const muaHo = page.getByText('MUA HỘ').first();
-
-await expect(muaHo).toBeVisible();
-const row = page.getByRole('row', { name: /Mua hộ/ }).first();
-
-const checkbox = row.locator('div.h-5.w-5');
-
-// nếu chưa checked thì click
-if (!(await checkbox.getAttribute('class'))?.includes('bg-blue-600')) {
-  await checkbox.click();
-}
-  // CREATE PAYMENT SESSION
-  await page.getByRole('button', { name: 'TẠO PHIÊN THANH TOÁN' }).click();
-
-  await page.getByText('Chọn tài khoản').click({ force: true });
-  await page.getByText('Le Trung Dung • 6780111818888 (MB)', { exact: true }).click();
-
-  const createSessionBtn = page.getByRole('button', { name: 'Tạo phiên thanh toán · 69.512 đ' });
-  await expect(createSessionBtn).toBeVisible();
-  await createSessionBtn.click();
-
-  await page.getByRole('button', { name: 'Xác nhận tạo phiên' }).click();
-
-  // SUCCESS
-  const successMsg = page.getByText('Đã tạo phiên thanh toán.');
-  await expect(successMsg).toBeVisible();
 });

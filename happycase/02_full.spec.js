@@ -44,7 +44,7 @@ const option = dropdown.getByText('Chờ thanh toán', { exact: true });
 await expect(option).toBeVisible();
 await option.click();
 
-  await page.getByPlaceholder('Mã khách hàng...').fill('C02157');
+  await page.getByPlaceholder('Mã khách hàng...').fill('C02168');
 
   await page.getByRole('button', { name: 'Tìm kiếm' }).click();
 

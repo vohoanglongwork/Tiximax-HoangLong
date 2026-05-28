@@ -59,7 +59,7 @@ await page.getByRole('button', { name: 'Xuất kho',exact: true }).first().click
 
 await page.getByPlaceholder('Nhập mã vận chuyển...').fill(randomTRACKING);
 
-await page.getByRole('button', { name: 'Xác nhận' }).click();
+await page.getByRole('button', { name: 'Xác nhận' }).last().click();
 
 
 

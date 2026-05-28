@@ -42,7 +42,9 @@ await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
   await expect(page).toHaveURL(/.*\/manager\/producttype/);
 
   await expect(page.getByText('Quản Lý Loại sản phẩm').first()).toBeVisible();
+const selectRoute = page.locator('select').first();
 
+await selectRoute.selectOption({ index: 1 });
 await page.getByRole('button', { name: 'Thêm mới', exact: true }).first().click();
 await page.getByPlaceholder('VD: Điện tử, Thời trang...').fill('Test Product');
 
@@ -61,7 +63,8 @@ await row.getByRole('button', { name: 'Sửa', exact: true }).click();
 
 await page.getByPlaceholder('VD: Điện tử, Thời trang...').fill('Test Product2');
 
-await page.getByText('Có phí', { exact: true }).nth(1).click();
+await page.getByText('Có phí', { exact: true }).click({ force: true });
+await page.getByText('Hàng hỗn hợp', { exact: true }).last().click({ force: true });
 await page.getByRole('button', { name: 'Cập nhật', exact: true }).click();
 await expect(page.getByText('Cập nhật thành công!').first()).toBeVisible();
 await row2.scrollIntoViewIfNeeded();

@@ -26,7 +26,7 @@ await expect(page.getByText('Tạo đơn mua hộ')).toBeVisible();
 
 
 
-await expect(page.getByRole('button', { name: /Theo dõi kho hàng/ })).toBeVisible();
+await expect(page.getByRole('button', { name: /Thanh toán/ })).toBeVisible();
 
 // Sau đó click vào nó
 await page.getByRole('button', { name: /Theo dõi kho hàng/ }).click();
@@ -46,9 +46,9 @@ await expect(page.getByText('Danh sách địa chỉ giao chờ xác nhận')).t
   const searchInput2 = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
 
   await searchInput2.click();
-  await searchInput2.pressSequentially('AutoCustomer', { delay: 100 });
+  await searchInput2.pressSequentially('autosale', { delay: 100 });
 
-  const customerOption2 = page.getByText('AutoCustomer').first();
+  const customerOption2 = page.getByText('C02168').first();
   await expect(customerOption2).toBeVisible();
   await customerOption2.click();
 
@@ -65,7 +65,7 @@ await expect(page.getByText('Danh sách địa chỉ giao chờ xác nhận')).t
 
   await expect(page).toHaveURL(/.*\/payments\/shipping/);
 
-const row = page.getByRole('row', { name: /AutoCustomer/ }).first();
+const row = page.getByRole('row', { name: /C02168/ }).first();
 const payBtn = row.getByRole('button', { name: 'Thanh toán' });
 
 await payBtn.scrollIntoViewIfNeeded();

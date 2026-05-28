@@ -1,4 +1,4 @@
-UPDATE 22/05/2026
+UPDATE 26/05/2026
 
 
 
@@ -76,21 +76,22 @@ Chạy theo thứ tự 01 -> 08
 
 
 
-01_full : Tạo đơn mua hộ và tạo phiếu thanh toán cho đơn vừa tạo           (Đang đẩy trang lên?)
+01_full : Tạo đơn mua hộ và tạo phiếu thanh toán cho đơn vừa tạo           
 
 02_full : Admin chuyển trạng thái đã thanh toán cho đơn vừa tạo
 
 03_full : Purchase tạo đơn mua hàng
 
-04_full : Nhập kho nước ngoài                                       ( đang lỗi api không load đơn hang )
+04_full : Nhập kho nước ngoài                                       
 
 05_full : Nhập kho việt nam
 
-06_full : Sale Xác nhận địa chỉ giao và tạo phiếu thanh toán ship                  
+06_full : tạo phiếu thanh toán ship               
 
-07_full : Admin xác nhận thanh toán ship
+07_full : Admin xác nhận thanh toán ship                                 
 
-08_full : xuất kho                                                           
+08_full : xuất kho                 
+                                                   
 
 
 
@@ -134,7 +135,7 @@ require : 01\_full ,02\_full
 huydonchothanhtoantienhang : Huỷ đơn trạng thái chờ thanh toán tiền hàng
 require : 01\_full 
 
-huydondaxacnhan : Huỷ đơn trạng thái đã xác nhận                             (chưa dùng được)
+huydondaxacnhan : Huỷ đơn trạng thái đã xác nhận                            
 huỷ đơn vào stk
 
 huydonchomua : Huỷ đơn trạng thái chờ mua
@@ -195,16 +196,16 @@ require : no
 quanlykhuyenmai : quản lý option trong cấu hình hệ thống
 require : no
 
-quanlyloaisanpham : quản lý option trong cấu hình hệ thống           (đang lỗi code)   
+quanlyloaisanpham : quản lý option trong cấu hình hệ thống             
 require : no
 
 quanlywebsite : quản lý option trong cấu hình hệ thống
 require : no
 
-taotaikhoankhon : Tạo tài khoản                               (đang lỗi code)
+taotaikhoankhongoai : Tạo tài khoản                             
 require : no 
 
-taotaikhoanvn : Tạo tài khoản
+taotaikhoanboi : Tạo tài khoản
 require : no
 
 taotaikhoanpurchaser : Tạo tài khoản
@@ -232,5 +233,9 @@ require : no
 
 Kho Ngoại:
 
-xuatexcelchobay
+xuatexcelchobay : xuất excel chờ bay
+require : no
+
+nhapkhohangthuong : nhập kho hang thường
+require : 01_full , 02_full, 03_full
 
