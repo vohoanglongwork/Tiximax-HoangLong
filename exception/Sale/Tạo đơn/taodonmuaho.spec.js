@@ -96,7 +96,7 @@ await loai.click({ force: true });
   await productSection.getByPlaceholder('Nhập phí ship').fill('1000');
 
   await page.getByPlaceholder('Ví dụ: Tmall Shop A').fill('Auto Của Long');
-await page.getByRole('button', { name: 'Thêm item' }).click({ force: true });
+
 
   // CREATE ORDER
   await page.getByRole('button', { name: 'Hoàn thành tạo đơn' }).click();

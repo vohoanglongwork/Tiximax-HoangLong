@@ -1,4 +1,4 @@
-UPDATE 26/05/2026
+UPDATE 28/05/2026
 
 
 
@@ -104,6 +104,12 @@ Chạy theo thứ tự 01 -> 08
 
 Sale:
 
+taodonmuaho2link: tạo đơn mua hộ có 2 link sản phẩm và tạo thanh toán
+require : no
+
+taothanhtoansale : tạo thanh toán cho đơn hàng mới nhất của sale
+require: taodonmuaho
+
 guiyeucauhoantienvidientu : sử dung chức năng yêu cầu hoàn huỷ của sale trên đơn đấu giá
 require : taodondaugia, 02_full , huydondaugia
 
@@ -148,6 +154,10 @@ require : 01\_full ,02\_full
 
 
 Purchase:
+
+tachdonhang: Tách đơn hàng có 2 link
+require : taodonmuaho2link , 02_full
+
 nhapkhohangthuong : nhập hang vào kho ngoại
 require : 01_full , 02_full , 03_full
 

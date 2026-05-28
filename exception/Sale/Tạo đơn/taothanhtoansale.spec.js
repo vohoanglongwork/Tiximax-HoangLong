@@ -63,7 +63,7 @@ if (!(await checkbox.getAttribute('class'))?.includes('bg-blue-600')) {
   await page.getByText('Chọn tài khoản').click({ force: true });
   await page.getByText('Le Trung Dung • 6780111818888 (MB)', { exact: true }).click();
 
-  const createSessionBtn = page.getByRole('button', { name: 'Tạo phiên thanh toán (1)' });
+  const createSessionBtn = page.getByRole('button', { name: 'Tạo phiên thanh toán · ' });
   await expect(createSessionBtn).toBeVisible();
   await createSessionBtn.click();
 
