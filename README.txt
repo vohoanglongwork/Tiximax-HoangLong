@@ -1,4 +1,4 @@
-UPDATE 28/05/2026
+UPDATE 29/05/2026
 
 
 
@@ -107,6 +107,9 @@ Sale:
 taodonmuaho2link: tạo đơn mua hộ có 2 link sản phẩm và tạo thanh toán
 require : no
 
+taodonmuaho2link: tạo đơn mua hộ có 2 số lượng sản phẩm 
+require : no
+
 taothanhtoansale : tạo thanh toán cho đơn hàng mới nhất của sale
 require: taodonmuaho
 
@@ -154,6 +157,8 @@ require : 01\_full ,02\_full
 
 
 Purchase:
+tachsoluong: Tách số lượng của đơn hang
+require: taodonmuaho2soluong, taothanhtoansale , 02_full
 
 tachdonhang: Tách đơn hàng có 2 link
 require : taodonmuaho2link , 02_full
@@ -215,7 +220,7 @@ require : no
 taotaikhoankhongoai : Tạo tài khoản                             
 require : no 
 
-taotaikhoanboi : Tạo tài khoản
+taotaikhoankhonoi : Tạo tài khoản
 require : no
 
 taotaikhoanpurchaser : Tạo tài khoản

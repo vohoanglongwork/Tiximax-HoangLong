@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const { time } = require('node:console');
   const randomMVD = `TESTMVD_${Math.random().toString(36).substring(7)}`;
+  const randomMVD2 = `TESTMVD_${Math.random().toString(36).substring(7)}`;
 test('Test Purchase Mua hàng', async ({ page }) => {
   test.setTimeout(90000);
 
@@ -54,15 +55,18 @@ await expect(menu2).toBeVisible();
 
 await page.getByPlaceholder('VD: MH-FAA7E2').fill(firstMH);
 await page.getByRole('button', { name: 'Tìm' }).click({ force: true });
-await page.getByPlaceholder('VD: JP-006-A').fill(randomMVD);
+
 const splitBtn = page.getByRole('button', {
   name: 'Chọn để tách',
   exact: true
-});
+}).first();
 
 await splitBtn.scrollIntoViewIfNeeded();
 await splitBtn.click({ force: true });
-await page.getByrole('button', { name: 'Tách số lượng của order link' }).click({ force: true });
-  const successMsg = page.getByText('Tạo đơn mua thành công.');
+await page.getByText('Thêm dòng tách').click({ force: true });
+await page.getByPlaceholder('VD: JP-006-A').first().fill(randomMVD);
+await page.getByPlaceholder('VD: JP-006-A').last().fill(randomMVD2);
+await page.getByRole('button', { name: 'Tách số lượng của order link' }).click({ force: true });
+  const successMsg = page.getByText('Tách số lượng của order link thành công!').first();
   await expect(successMsg).toBeVisible();
 });

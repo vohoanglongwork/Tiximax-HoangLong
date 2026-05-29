@@ -44,7 +44,7 @@ await page.waitForURL('**/staff-warehouse-domestic/vnpost-invoicing');
 
 
 await expect(
-  page.getByText('AutoCustomer', { exact: true }).first()
+  page.getByText('autosale_3bgvqg', { exact: true }).first()
 ).toBeVisible();
 
  await page.locator('input[type="checkbox"]').nth(1).check();

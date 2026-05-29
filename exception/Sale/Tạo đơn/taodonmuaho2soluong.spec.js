@@ -96,9 +96,15 @@ await loai.click({ force: true });
   await productSection.getByPlaceholder('Nhập phí ship').fill('1000');
 
   await page.getByPlaceholder('Ví dụ: Tmall Shop A').fill('Auto Của Long');
+await page.getByRole('button', { name: 'Thêm item' }).click({ force: true });
 
 
-  // CREATE ORDER
+await expect(page.getByText('Sản phẩm #2')).toBeVisible();
+
+await page.getByRole('button', { name: 'SAO CHÉP' }).first().click({ force: true });
+await page.getByRole('button', { name: 'DÁN' }).nth(1).click({ force: true });
+await page.waitForTimeout(5000);
+await page.getByRole('button', { name: 'DÁN' }).nth(1).click({ force: true });
   await page.getByRole('button', { name: 'Hoàn thành tạo đơn' }).click();
   await page.getByRole('button', { name: 'Tạo đơn mua hộ' }).click();
 
