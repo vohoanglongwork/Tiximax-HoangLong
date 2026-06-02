@@ -22,11 +22,23 @@ test('Test tạo khách hàng', async ({ page }) => {
 
   const randomUsername = `autosale_${Math.random().toString(36).substring(7)}`;
 
-  await page.goto('https://fe-new-staging.tiximax.net/auth/login');
+  await page.goto('https://fe-new-staging.tiximax.net/customer/dashboard');
+
 
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
-await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
+await page.getByRole('button', { name: 'Xác nhận' }).waitFor({ state: 'hidden' });
+await page.pause();
+await page.getByPlaceholder('example@gmail.com').fill('autotesttiximax@gmail.com');
+await page.getByRole('button', { name: 'Tiếp tục' }).click();
+  await page.goto('https://mail.google.com/mail/u/0/#inbox');
+await page.locator('#identifierId').fill('autotesttiximax@gmail.com');
+await page.keyboard.press('Enter');
+
+
+await page.waitForTimeout(2000); // Chờ 2 giây để trang tải
+
+
   await page.getByPlaceholder('Nhập tên đăng nhập').fill('autocustomer');
   await page.getByPlaceholder('••••••••').fill('123456');
 
@@ -80,6 +92,7 @@ await expect(loai).toBeVisible();
 await loai.click({ force: true });
  await page.getByPlaceholder('Nhập tên sản phẩm...').fill(randomUsername);
    await page.getByPlaceholder('Phân loại (Màu, Size, v.v)').fill('Auto Của Long');
+await page.getByPlaceholder('Nhập phí ship').fill('1');
  await page.getByRole('button', { name: 'TẠO ĐƠN HÀNG' }).click({ force: true });
 
 

@@ -103,10 +103,10 @@ await loai.click({ force: true });
 
 
   const productSection = page.locator('section').filter({ hasText: 'Danh sách sản phẩm' });
-  await productSection.getByPlaceholder('Nhập phí ship').fill('1000');
+  await productSection.getByPlaceholder('Nhập phí ship').last().fill('1000');
 
   await page.getByPlaceholder('Ví dụ: Tmall Shop A').fill('Auto Của Long');
-
+await page.getByPlaceholder('Nhập phí ship').first().fill('290,000');
   // CREATE ORDER
   await page.getByRole('button', { name: 'Hoàn thành tạo đơn' }).click();
   await page.getByRole('button', { name: 'Tạo đơn mua hộ' }).click();
@@ -150,7 +150,7 @@ if (!(await checkbox.getAttribute('class'))?.includes('bg-blue-600')) {
   await page.getByText('Chọn tài khoản').click({ force: true });
   await page.getByText('Le Trung Dung • 6780111818888 (MB)', { exact: true }).click();
 
-  const createSessionBtn = page.getByRole('button', { name: 'Tạo phiên thanh toán · 69.512 đ' });
+  const createSessionBtn = page.getByRole('button', { name: 'Tạo phiên thanh toán' }).last();
   await expect(createSessionBtn).toBeVisible();
   await createSessionBtn.click();
 
