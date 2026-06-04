@@ -12,7 +12,7 @@ test('Test xuất kho', async ({ page }) => {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('warehousedomestic');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autokhovn02');
   await page.getByPlaceholder('••••••••').fill('123456');
 await page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click();
 
@@ -44,7 +44,7 @@ await page.waitForURL('**/staff-warehouse-domestic/vnpost-invoicing');
 
 
 await expect(
-  page.getByText('autosale_3bgvqg', { exact: true }).first()
+  page.getByText('autosale_i351d', { exact: true }).first()
 ).toBeVisible();
 
  await page.locator('input[type="checkbox"]').nth(1).check();

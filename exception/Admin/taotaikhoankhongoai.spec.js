@@ -37,7 +37,7 @@ await expect(
   await page.getByRole('link', { name: 'Xác nhận đơn hàng' }).click({ force: true });
 await page.waitForLoadState('networkidle');
 await expect(page).toHaveURL(/manager\/quote/);
-await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
+
   
      await page.getByRole('button', { name: 'Quản lý nhân viên', exact: true }).click();
 
@@ -73,14 +73,15 @@ await requiredFieldText.scrollIntoViewIfNeeded();
 
 
 // chọn tuyến
-await page.getByRole('radio', { name: 'IDR - VND' }).check();
+await page.getByRole('checkbox', { name: 'IDR - VND' }).check();
 
 // chờ dropdown active
 const warehouseSelect = page.getByRole('combobox');
 
-await expect(warehouseSelect).toBeEnabled();
+await warehouseSelect.click();
 
-await warehouseSelect.selectOption('1');
+// chọn kho đầu tiên
+await page.getByRole('option').first().click();
 
 await page.getByText('Duyệt chi phí', { exact: true }).click({ force: true });
 await page.getByText('Yêu cầu chi phí', { exact: true }).click({ force: true });

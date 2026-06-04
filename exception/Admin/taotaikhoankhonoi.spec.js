@@ -75,9 +75,9 @@ await expect(page.getByText('Đang tải...').first()).toBeHidden();
 
 const warehouseSelect = page.getByRole('combobox');
 
-await expect(warehouseSelect).toBeVisible();
+await warehouseSelect.click();
 
-await warehouseSelect.selectOption({ label: 'Hà Nội — Việt Nam' });
+await page.getByText('HANOI — Việt Nam', { exact: true }).click();
 
 
 await page.getByText('Duyệt chi phí', { exact: true }).click({ force: true });

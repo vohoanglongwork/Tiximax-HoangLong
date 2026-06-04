@@ -48,7 +48,7 @@ await expect(page.getByText('Danh sách địa chỉ giao chờ xác nhận')).t
   await searchInput2.click();
   await searchInput2.pressSequentially('autosale', { delay: 100 });
 
-  const customerOption2 = page.getByText('C02168').first();
+  const customerOption2 = page.getByText('C02249').first();
   await expect(customerOption2).toBeVisible();
   await customerOption2.click();
 
@@ -65,7 +65,7 @@ await expect(page.getByText('Danh sách địa chỉ giao chờ xác nhận')).t
 
   await expect(page).toHaveURL(/.*\/payments\/shipping/);
 
-const row = page.getByRole('row', { name: /C02168/ }).first();
+const row = page.getByRole('row', { name: /C02249/ }).first();
 const payBtn = row.getByRole('button', { name: 'Thanh toán' });
 
 await payBtn.scrollIntoViewIfNeeded();

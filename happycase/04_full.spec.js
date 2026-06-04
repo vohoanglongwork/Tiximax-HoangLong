@@ -12,7 +12,7 @@ test('Test nhập kho nước ngoài', async ({ page }) => {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autokhont4lq7n');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autokhon02');
   await page.getByPlaceholder('••••••••').fill('123456');
 
   await page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click({ timeout: 10000 });
@@ -29,7 +29,7 @@ await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).cl
 
 
   await expect(page.getByText('1', { exact: true }).first()).toBeVisible();
-  await page.getByPlaceholder('KH001').fill('C02157');
+  await page.getByPlaceholder('KH001').fill('C02249');
   const firstMVD = await page
    .getByText(/TESTMVD_/)
     .first() 

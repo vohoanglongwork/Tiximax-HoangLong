@@ -11,7 +11,7 @@ test('Test nhập kho nội địa', async ({ page }) => {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
-  await page.getByPlaceholder('Nhập tên đăng nhập').fill('warehousedomestic');
+  await page.getByPlaceholder('Nhập tên đăng nhập').fill('autokhovn02');
   await page.getByPlaceholder('••••••••').fill('123456');
 await page.getByRole('button', { name: 'Đăng nhập hệ thống' }).click();
 
@@ -37,11 +37,12 @@ await expect(page.getByText('Dim').first()).toBeVisible();
 
 
 
-await page.getByRole('link', { name: 'Đang vận chuyển' }).click();
+await page.getByRole('link', { name: 'Đang vận chuyển' }).click({ force: true });
 
 await page.waitForURL('**/staff-warehouse-domestic/flying');
 
 
+await expect(page.getByText('Nhập kho trung chuyển')).toBeVisible();
 
 
   await page.locator('input[type="checkbox"]').nth(1).check();
