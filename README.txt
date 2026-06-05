@@ -1,4 +1,4 @@
-UPDATE 04/06/2026
+UPDATE 05/06/2026
 
 
 
@@ -199,6 +199,7 @@ require : taodondaugia, 02_full, taodonmuadaugia
 Admin:
 
 
+
 acceptvoucher : Đồng ý yêu cầu voucher
 require : taoyeucauvoucher
 
@@ -229,7 +230,11 @@ require : no
 taotaikhoansale : Tạo tài khoản
 require : no
 
+taotaikhoanchamsockhachhang : Tạo tài khoản
+require : no
 
+taotaikhoantruongnhombanhang :  Tạo tài khoản
+require : no
 
 
 
