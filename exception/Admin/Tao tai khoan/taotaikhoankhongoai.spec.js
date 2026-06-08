@@ -76,11 +76,12 @@ await requiredFieldText.scrollIntoViewIfNeeded();
 await page.getByRole('checkbox', { name: 'IDR - VND' }).check();
 
 // chờ dropdown active
-const warehouseSelect = page.getByRole('combobox');
+const warehouseSelect = page.getByRole('combobox'); 
 
-await warehouseSelect.click();
+await warehouseSelect.click({ force: true });
 
 // chọn kho đầu tiên
+
 await page.getByRole('option').first().click();
 
 await page.getByText('Duyệt chi phí', { exact: true }).click({ force: true });

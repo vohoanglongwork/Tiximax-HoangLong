@@ -68,7 +68,7 @@ await page.getByText('Tuyến vận hành', {
   exact: true
 }).click({ force: true });
 
-const option = page.getByText('IDR - VND / INDO -> Hồ Chí Minh', {
+const option = page.getByText('INDO -> Hồ Chí Minh', {
   exact: true
 });
 

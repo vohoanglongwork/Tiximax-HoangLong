@@ -1,4 +1,4 @@
-UPDATE 05/06/2026
+UPDATE 08/06/2026
 
 
 
@@ -218,10 +218,13 @@ require : no
 quanlywebsite : quản lý option trong cấu hình hệ thống
 require : no
 
-taotaikhoankhongoai : Tạo tài khoản                             
+taotaikhoankhongoai : Tạo tài khoản    ( đang lỗi)                         
 require : no 
 
 taotaikhoankhonoi : Tạo tài khoản
+require : no
+
+taotaikhoankhonoi2 : Tạo tài khoản tuyến HCM
 require : no
 
 taotaikhoanpurchaser : Tạo tài khoản
