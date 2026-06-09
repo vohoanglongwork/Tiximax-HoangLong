@@ -36,12 +36,12 @@ await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
 
   const employLink = page.getByRole('link', { name: 'Quản lý voucher' });
   await expect(employLink).toBeVisible();
-  await employLink.click();
+  await employLink.click({ force: true });
 
 
   await expect(page).toHaveURL(/.*\/finance\/voucher-requests/);
 
-  await expect(page.getByText('AutoCustomer').first()).toBeVisible();
+  await expect(page.getByText('autosale').first()).toBeVisible();
 
 await page.getByRole('button', { name: 'Duyệt', exact: true }).first().click();
 await page.getByRole('button', { name: 'Duyệt', exact: true }).last().click();

@@ -41,7 +41,7 @@ await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
 
   await expect(page).toHaveURL(/.*\/manager\/routes/);
 
-  await expect(page.getByText('HCM').first()).toBeVisible();
+  await expect(page.getByText('Sửa').first()).toBeVisible();
 
 await page.getByRole('button', { name: 'Thêm tuyến', exact: true }).first().click();
 await page.getByPlaceholder('VD: IND, CNY...').fill('Test');

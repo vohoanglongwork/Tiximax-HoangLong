@@ -1,4 +1,4 @@
-UPDATE 08/06/2026
+UPDATE 09/06/2026
 
 
 
@@ -206,6 +206,9 @@ require : taoyeucauvoucher
 denidevoucher : Từ chối yêu cầu voucher
 require : taoyeucauvoucher
 
+quanlytuyenvanchuyen : quản lý option trong cấu hình hệ thống
+require : no
+
 quanlydiemden : quản lý option trong cấu hình hệ thống
 require : no
 
@@ -218,7 +221,10 @@ require : no
 quanlywebsite : quản lý option trong cấu hình hệ thống
 require : no
 
-taotaikhoankhongoai : Tạo tài khoản    ( đang lỗi)                         
+taotaikhoankhongoai : Tạo tài khoản                         
+require : no 
+
+taotaikhoankhongoai2 : Tạo tài khoản tuyến HCM                         
 require : no 
 
 taotaikhoankhonoi : Tạo tài khoản

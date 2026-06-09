@@ -58,11 +58,11 @@ await voucherLink.click();
 const searchInput = page.getByPlaceholder('Tìm theo tên hoặc số điện thoại...');
 
 await searchInput.click();
-await searchInput.pressSequentially('AutoCustomer', { delay: 100 });
+await searchInput.pressSequentially('autosale', { delay: 100 });
 
 // chờ option xuất hiện
 const customerOption = page.getByRole('button', {
-  name: /C02157 - AutoCustomer/
+  name: /autosale/
 });
 
 await expect(customerOption).toBeVisible();

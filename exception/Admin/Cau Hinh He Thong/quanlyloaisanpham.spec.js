@@ -42,9 +42,14 @@ await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
   await expect(page).toHaveURL(/.*\/manager\/producttype/);
 
   await expect(page.getByText('Quản Lý Loại sản phẩm').first()).toBeVisible();
-const selectRoute = page.locator('select').first();
 
-await selectRoute.selectOption({ index: 1 });
+await expect(page.getByText('Đang tải...').first()).toBeHidden();
+const selectRoute = page.getByRole('combobox').first();
+
+await selectRoute.click();
+
+// chọn option thứ 2
+await page.getByRole('option').nth(1).click();
 await page.getByRole('button', { name: 'Thêm mới', exact: true }).first().click();
 await page.getByPlaceholder('VD: Điện tử, Thời trang...').fill('Test Product');
 

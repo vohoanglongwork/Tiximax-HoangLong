@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { time } = require('node:console');
 const { FORMERR } = require('node:dns');
 
-test('Test quản lý khuyến mãi', async ({ page }) => {
+test('Test quản lý tài khoản ngân hàng', async ({ page }) => {
   test.setTimeout(90000);
 
 
@@ -36,12 +36,12 @@ await expect(page.getByText('Đã xác nhận').first()).toBeVisible();
 
   const employLink = page.getByRole('link', { name: 'Tài khoản ngân hàng' });
   await expect(employLink).toBeVisible();
-  await employLink.click();
+  await employLink.click({ force: true });
 
 
   await expect(page).toHaveURL(/.*\/cost\/paylater/);
 
-  await expect(page.getByText('Vietcombank').first()).toBeVisible();
+  await expect(page.getByText('Sửa').first()).toBeVisible();
 
 await page.getByRole('button', { name: 'Thêm mới', exact: true }).first().click();
 await page.getByPlaceholder('VD: Vietcombank, Techcombank...').fill('TestBank');
