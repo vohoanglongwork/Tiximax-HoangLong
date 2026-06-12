@@ -21,14 +21,14 @@ await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).cl
  
   await expect(page).toHaveURL(/create-orders\/purchase/);
   await expect(page.getByText('Đang tải dữ liệu nền')).toBeHidden();
-await expect(page.getByText('Tạo đơn mua hộ')).toBeVisible();
+await expect(page.getByText('Mua hộ').first()).toBeVisible();
 
 await page.getByRole('link', { name: 'Đấu giá', exact: true }).click();
 
   const searchInput = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
-  await searchInput.fill('Autosale');
+  await searchInput.fill('autosale');
 
-  const customerOption = page.getByText('C02168');
+  const customerOption = page.getByText('C02249');
   await expect(customerOption).toBeVisible();
   await customerOption.click();
 
@@ -61,7 +61,7 @@ await page.getByText('Tuyến vận hành', {
   exact: true
 }).click({ force: true });
 
-const option = page.getByText('IDR - VND / INDO -> Hà Nội', {
+const option = page.getByText('IDR -> HN', {
   exact: true
 });
 
@@ -83,13 +83,13 @@ await lazada.click({ force: true });
 
   // CATEGORY
 await page.getByText('Chọn loại hàng').click({ force: true });
-const loai = page.getByText('06. Gia Dụng', { exact: true });
+const loai = page.getByText('06. Đồ Trang Trí', { exact: true });
 await expect(loai).toBeVisible();
 await loai.click({ force: true });
 
   // PRICE + SHIPPING
   await page.getByPlaceholder('Nhập giá').fill('41128');
-
+await page.getByPlaceholder('Nhập phí ship').first().click();
   await page.getByPlaceholder('Phụ phí mua').fill('41128');
 
   await page.getByPlaceholder('Ví dụ: Size M, Màu Đen').fill('Auto Của Long');
@@ -115,7 +115,7 @@ await loai.click({ force: true });
   await searchInput2.click();
   await searchInput2.pressSequentially('autosale', { delay: 100 });
 
-  const customerOption2 = page.getByText('C02168').first();
+  const customerOption2 = page.getByText('C02249').first();
   await expect(customerOption2).toBeVisible();
   await customerOption2.click();
 
@@ -137,9 +137,10 @@ if (!(await checkbox.getAttribute('class'))?.includes('bg-blue-600')) {
   await page.getByText('Chọn tài khoản').click({ force: true });
   await page.getByText('Le Trung Dung • 6780111818888 (MB)', { exact: true }).click();
 
-  const createSessionBtn = page.getByRole('button', { name: 'Tạo phiên thanh toán (1)' });
-  await expect(createSessionBtn).toBeVisible();
-  await createSessionBtn.click();
+await page
+  .getByRole('button', { name: 'Tạo phiên thanh toán' })
+  .last()
+  .click();
 
   await page.getByRole('button', { name: 'Xác nhận tạo phiên' }).click();
 

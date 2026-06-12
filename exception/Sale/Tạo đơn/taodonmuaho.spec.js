@@ -13,9 +13,7 @@ test('Sale tạo đơn mua hộ', async ({ page }) => {
   await page.getByRole('button', { name: 'Tiếng Việt' }).click();
   await page.getByRole('button', { name: 'Xác nhận' }).click();
 await page.getByRole('button', { name: 'Xác nhận' }).waitFor({ state: 'hidden' });
-await page.getByPlaceholder('example@gmail.com').fill('autotesttiximax@gmail.com');
-await page.getByRole('button', { name: 'Tiếp tục' }).click();
-  await page.goto('https://mail.google.com/mail/u/0/#inbox');
+await page.getByRole('button', { name: 'Đăng nhập bằng mật khẩu' }).click();
   await page.getByPlaceholder('Nhập tên đăng nhập').fill('autosale');
   await page.getByPlaceholder('••••••••').fill('123456');
 
@@ -29,7 +27,7 @@ await expect(page.getByText('Tạo đơn mua hộ')).toBeVisible();
   const searchInput = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
   await searchInput.fill('autosale');
 
-  const customerOption = page.getByText('C02168');
+  const customerOption = page.getByText('C02249');
   await expect(customerOption).toBeVisible();
   await customerOption.click();
 
@@ -70,7 +68,7 @@ await page.getByText('Tuyến vận hành', {
   exact: true
 }).click({ force: true });
 
-const option = page.getByText('IDR - VND / INDO -> Hà Nội', {
+const option = page.getByText('IDR -> HN', {
   exact: true
 });
 
@@ -95,7 +93,7 @@ await page.keyboard.press('Escape');
 //await loaidv.click({ force: true });
 
 await page.getByText('Chọn loại hàng').click({ force: true });
-const loai = page.getByText('06. Gia Dụng', { exact: true });
+const loai = page.getByText('06. Đồ Trang Trí', { exact: true });
 await expect(loai).toBeVisible();
 await loai.click({ force: true });
 
@@ -103,12 +101,13 @@ await loai.click({ force: true });
 
   // PRICE + SHIPPING
 
-
+  await page.getByPlaceholder('Nhập phí ship').first().click();
   const productSection = page.locator('section').filter({ hasText: 'Danh sách sản phẩm' });
   await productSection.getByPlaceholder('Nhập phí ship').last().fill('1000');
 
   await page.getByPlaceholder('Ví dụ: Tmall Shop A').fill('Auto Của Long');
-await page.getByPlaceholder('Nhập phí ship').first().fill('290,000');
+
+
   // CREATE ORDER
   await page.getByRole('button', { name: 'Hoàn thành tạo đơn' }).click();
   await page.getByRole('button', { name: 'Tạo đơn mua hộ' }).click();

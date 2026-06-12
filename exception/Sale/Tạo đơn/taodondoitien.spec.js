@@ -28,7 +28,7 @@ await page.getByRole('link', { name: 'Đổi tiền', exact: true }).click();
   const searchInput = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
   await searchInput.fill('autosale');
 
-  const customerOption = page.getByText('C02168');
+  const customerOption = page.getByText('C02249');
   await expect(customerOption).toBeVisible();
   await customerOption.click();
 

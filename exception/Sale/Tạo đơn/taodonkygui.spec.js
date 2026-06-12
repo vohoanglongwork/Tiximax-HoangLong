@@ -28,7 +28,7 @@ await page.getByRole('link', { name: 'Ký gửi', exact: true }).click();
   const searchInput = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
   await searchInput.fill('autosale');
 
-  const customerOption = page.getByText('C02168');
+  const customerOption = page.getByText('C02249');
   await expect(customerOption).toBeVisible();
   await customerOption.click();
 
@@ -45,7 +45,7 @@ await page.getByText('Tuyến vận hành', {
   exact: true
 }).click({ force: true });
 
-const option = page.getByText('IDR - VND / INDO -> Hà Nội', {
+const option = page.getByText('IDR -> HN', {
   exact: true
 });
 
@@ -73,12 +73,13 @@ await page.getByPlaceholder('Nhập mã vận đơn').fill(randomMVD);
 
 
 await page.getByText('Chọn loại hàng').click({ force: true });
-const loai = page.getByText('06. Gia Dụng', { exact: true });
+const loai = page.getByText('06. Đồ Trang Trí', { exact: true });
 await expect(loai).toBeVisible();
 await loai.click({ force: true });
 
   // PRICE + SHIPPING
   await page.getByPlaceholder('Nhập phí khác').fill('41128');
+  await page.getByPlaceholder('Nhập phí ship').first().click();
   await page.getByPlaceholder('Nhập phụ phí').fill('41128');
 
     await expect(page.locator('input[type="file"]')).toHaveCount(1);
@@ -87,7 +88,7 @@ await page
   .setInputFiles('fixtures/receipt.png');
  await expect(page.getByText('Tải ảnh lên thành công')).toBeVisible({ timeout: 5000 });
 
-
+await page.getByPlaceholder('Nhập phí ship').first().fill('290,000');
 
   // CREATE ORDER
   await page.getByRole('button', { name: 'Hoàn thành tạo đơn' }).click();

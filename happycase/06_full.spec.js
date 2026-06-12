@@ -36,7 +36,7 @@ await page.getByRole('button', { name: /Theo dõi kho hàng/ }).click();
 
   await Promise.all([
     page.waitForURL('**/staff-sale/management/warehouse/confirm'),
-    menu.click()
+    menu.click({ force: true })
   ]);
 
 

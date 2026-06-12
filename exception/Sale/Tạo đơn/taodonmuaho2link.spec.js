@@ -27,7 +27,7 @@ await expect(page.getByText('Tạo đơn mua hộ')).toBeVisible();
   const searchInput = page.getByPlaceholder('Tìm theo tên, số điện thoại, email');
   await searchInput.fill('autosale');
 
-  const customerOption = page.getByText('C02168');
+  const customerOption = page.getByText('C02249');
   await expect(customerOption).toBeVisible();
   await customerOption.click();
 
@@ -61,7 +61,7 @@ await page.getByText('Tuyến vận hành', {
   exact: true
 }).click({ force: true });
 
-const option = page.getByText('IDR - VND / INDO -> Hà Nội', {
+const option = page.getByText('IDR -> HN', {
   exact: true
 });
 
@@ -83,9 +83,11 @@ await lazada.click({ force: true });
 await page.keyboard.press('Escape');
 
 await page.getByText('Chọn loại hàng').click({ force: true });
-const loai = page.getByText('06. Gia Dụng', { exact: true });
+
+const loai = page.getByText('06. Đồ Trang Trí', { exact: true });
 await expect(loai).toBeVisible();
 await loai.click({ force: true });
+  await page.getByPlaceholder('Nhập phí ship').first().click();
 
 
 
@@ -128,7 +130,7 @@ await page.getByRole('button', { name: 'DÁN' }).nth(1).click({ force: true });
   await searchInput2.click();
   await searchInput2.pressSequentially('autosale', { delay: 100 });
 
-  const customerOption2 = page.getByText('C02168');
+  const customerOption2 = page.getByText('C02249');
   await expect(customerOption2).toBeVisible();
   await customerOption2.click();
 
@@ -150,13 +152,16 @@ if (!(await checkbox.getAttribute('class'))?.includes('bg-blue-600')) {
   await page.getByText('Chọn tài khoản').click({ force: true });
   await page.getByText('Le Trung Dung • 6780111818888 (MB)', { exact: true }).click();
 
-  const createSessionBtn = page.getByRole('button', { name: 'Tạo phiên thanh toán · ' });
-  await expect(createSessionBtn).toBeVisible();
-  await createSessionBtn.click();
+const createSessionBtn = page
+  .getByRole('button', { name: 'Tạo phiên thanh toán' })
+  .last();
+
+await expect(createSessionBtn).toBeVisible();
+await createSessionBtn.click();
 
   await page.getByRole('button', { name: 'Xác nhận tạo phiên' }).click();
 
   // SUCCESS
-  const successMsg = page.getByText('Đã tạo phiên thanh toán.');
+  const successMsg = page.getByText('Đã tạo phiên thanh toán.').first();
   await expect(successMsg).toBeVisible();
 });
